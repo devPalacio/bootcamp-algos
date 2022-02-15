@@ -35,13 +35,13 @@ function binarySearch(arr, num) {
     if (arr[mid] < num) {
       // discard the left, target is on the right
       left = mid;
-      mid = mid + Math.floor((right - mid) / 2);
+      mid = Math.floor((right - mid) / 2);
       continue;
     }
     if (arr[mid] > num) {
       //discard right, target is on the left
       right = mid;
-      mid = mid - Math.floor((mid - left) / 2);
+      mid = Math.floor((mid - left) / 2);
     }
   }
 }
