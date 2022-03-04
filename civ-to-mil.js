@@ -13,7 +13,6 @@ function convert(string) {
       p1 = "12";
       return p1 + p2;
     }
-
     if (p3 === "pm") {
       p1 = (parseInt(p1) + 12).toString();
     }

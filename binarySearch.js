@@ -13,6 +13,27 @@
  * 1. How can you take advantage of the fact that the array is sorted to speed
  * up the search?
  */
+function binaryRecursion(left, right, arr, num) {
+  console.log(left, right);
+  // base case
+  const mid = Math.floor((right + left) / 2);
+  // check middle number and compare to target
+  // if number to the right, discard left
+  if (num === arr[left]) return left;
+  if (num === arr[right]) return right;
+  if (num === arr[mid]) return mid;
+  if (left > right) return -1;
+  if (num > arr[mid]) {
+    return binaryRecursion(mid + 1, right, arr, num);
+  }
+  if (num < arr[mid]) {
+    return binaryRecursion(left, mid - 1, arr, num);
+  }
+}
+console.log(
+  binaryRecursion(0, 9, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 8),
+  "should return 8"
+);
 
 function binarySearch(arr, num) {
   let right = arr.length - 1;
@@ -46,5 +67,5 @@ function binarySearch(arr, num) {
   }
 }
 
-console.log(binarySearch([1, 2, 3], 2), 1);
-console.log(binarySearch([1, 2, 3], 8), -1);
+// console.log(binarySearch([1, 2, 3], 2), 1);
+// console.log(binarySearch([1, 2, 3], 8), -1);
